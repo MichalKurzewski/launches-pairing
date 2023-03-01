@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { loadFull } from "tsparticles";
 import Particles from "react-tsparticles";
 import { useState } from "react";
@@ -15,7 +15,7 @@ const particlesDarkConfig: RecursivePartial<IOptions> = {
       value: "#1e293b",
     },
   },
-  fpsLimit: 120,
+  fpsLimit: 60,
   interactivity: {
     events: {
       onClick: {
@@ -65,7 +65,7 @@ const particlesDarkConfig: RecursivePartial<IOptions> = {
         default: "out",
       },
       random: false,
-      speed: 0.3,
+      speed: 0.4,
       straight: false,
     },
     number: {
@@ -93,6 +93,9 @@ const particlesDarkConfig: RecursivePartial<IOptions> = {
     },
   },
   detectRetina: true,
+  // background: {
+  //   image: "url('https://particles.js.org/images/background3.jpg')",
+  // },
 };
 const ParticlesDarkBackground = () => {
   const [particlesContainer, setParticlesContainer] = useState<
@@ -110,13 +113,16 @@ const ParticlesDarkBackground = () => {
     []
   );
 
-  return (
-    <Particles
-      init={particlesInit}
-      id="tsparticles"
-      loaded={particlesLoaded}
-      options={particlesDarkConfig}
-    />
+  return useMemo(
+    () => (
+      <Particles
+        init={particlesInit}
+        id="tsparticles"
+        loaded={particlesLoaded}
+        options={particlesDarkConfig}
+      />
+    ),
+    []
   );
 };
 export default ParticlesDarkBackground;

@@ -6,8 +6,7 @@ import Error from "./components/Error";
 import ListOfCards from "./components/ListOfCards";
 import Loading from "./components/Loading";
 import ParticlesBackground from "./components/background/ParticlesBackground";
-
-
+import { useEffect } from "react";
 export interface ILaunchDataMap {
   name: string;
   date_utc: string;
@@ -31,14 +30,13 @@ interface ILaunchItemFromAPI {
 }
 
 const App: React.FC = () => {
+
   return (
-    <div>
+    <div id="top-container" className="text-slate-700 dark:text-slate-100">
       <ParticlesBackground />
-      <div id="top-container" className="text-slate-700 dark:text-slate-100">
-        <StaticHeader />
-        <div id="central-container" className="container mx-auto px-4">
-          <DisplayContent />
-        </div>
+      <StaticHeader />
+      <div id="central-container" className="container mx-auto px-4">
+        <DisplayContent />
       </div>
     </div>
   );

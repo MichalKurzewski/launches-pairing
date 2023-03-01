@@ -16,7 +16,7 @@ const particlesLightkConfig: RecursivePartial<IOptions> = {
       value: "#f1f5f9",
     },
   },
-  fpsLimit: 120,
+  fpsLimit: 60,
   interactivity: {
     events: {
       onClick: {
@@ -60,13 +60,13 @@ const particlesLightkConfig: RecursivePartial<IOptions> = {
       enable: false,
     },
     move: {
-      direction: "right",
+      direction: "left",
       enable: true,
       outModes: {
         default: "out",
       },
       random: false,
-      speed: 0.3,
+      speed: 0.4,
       straight: false,
     },
     number: {

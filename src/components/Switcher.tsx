@@ -4,13 +4,13 @@ import { ReactComponent as Rocket } from "../assets/svg/rocket2.svg";
 import useDarkMode from "../hooks/useDarkMode";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+
 export default function Switcher() {
   const { theme, toggle } = useDarkMode();
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
- 
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(theme==="dark"?true:false);
 
   useEffect(() => {
-     setIsDarkMode(theme === "dark" ? true : false);
+    setIsDarkMode(theme === "dark" ? true : false);
     const root = window.document.documentElement;
     root.classList.remove(theme === "dark" ? "light" : "dark");
     root.classList.add(theme);
@@ -27,9 +27,14 @@ export default function Switcher() {
       opacity: 0,
     },
     animate: {
-      x: isDarkMode ? "0vw" : "-70vw",
-      opacity: !isDarkMode ? 0 : 1,
-      transition: { duration: 2, delay: 2 },
+      x: isDarkMode ? "0vw" : ["0vw", "0.8vw", "-70vw"],
+      rotate: isDarkMode ? 0 : [0, 180, 180, 0],
+      opacity: isDarkMode ? 1 : [1, 1, 0.3, 0],
+      transition: {
+        times: isDarkMode ? [] : [0, 0.3, 0.99, 1],
+        duration: 2.5,
+        delay: 3,
+      },
     },
   };
   return (
@@ -37,7 +42,7 @@ export default function Switcher() {
       <motion.button
         id="theme-toggle"
         variants={themeVariants}
-        initial="animate"
+        initial="init"
         animate="animate"
         className="m-6 flex justify-start w-36 cursor-pointer"
         onClick={() => {
@@ -59,7 +64,7 @@ export default function Switcher() {
           />
         )}
         {!isDarkMode && (
-          <Sun id="sun-icon" className=" fill-slate-800 w-8 h-8 m-2 z-10" />
+          <Sun id="sun-icon" className=" fill-slate-800 w-8 h-8 m-2" />
         )}
       </motion.button>
     </>
