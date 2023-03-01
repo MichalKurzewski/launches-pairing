@@ -6,8 +6,7 @@ import { spaceXApiConfig } from "./configs/spaceXApiConfig";
 import ListOfCards from "./components/ListOfCards";
 import Error from "./components/Error";
 import { AxiosResponse } from "axios";
-import ParticlesBackground from "./components/ParticlesBackground";
-
+import ParticlesBackground from "./components/background/ParticlesBackground";
 export interface ILaunchDataMap {
   name: string;
   date_utc: string;
@@ -36,6 +35,7 @@ export interface ISpaceXResponse extends AxiosResponse {
 
 function App(): JSX.Element {
   const { data, status, error } = useFetch<ISpaceXResponse>(spaceXApiConfig);
+  // const { themeMode: theme } = useDarkMode();
   const DisplayContent = () => {
     if (status === "error" && error !== null) {
       return <Error error={error} />;
@@ -55,16 +55,15 @@ function App(): JSX.Element {
   };
 
   return (
-
+    <div>
+      <ParticlesBackground /> 
       <div id="top-container" className="text-slate-700 dark:text-slate-100">
-        <ParticlesBackground />
         <StaticHeader />
-
         <div id="central-container" className="container mx-auto px-4">
           <DisplayContent />
         </div>
       </div>
-
+    </div>
   );
 }
 

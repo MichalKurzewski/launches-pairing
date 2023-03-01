@@ -21,20 +21,20 @@
 import { useLocalStorage } from "usehooks-ts";
 
 interface UseDarkModeOutput {
-  themeMode: string;
+  theme: string;
   toggle: () => void;
   enable: () => void;
   disable: () => void;
 }
 
 function useDarkMode(defaultValue?: string): UseDarkModeOutput {
-  const [themeMode, setThemeMode] = useLocalStorage<string>("theme", "dark");
+  const [theme, setTheme] = useLocalStorage<string>("theme", "dark");
 
   return {
-    themeMode,
-    toggle: () => setThemeMode((prev) => (prev === "dark" ? "light" : "dark")),
-    enable: () => setThemeMode("dark"),
-    disable: () => setThemeMode("light"),
+    theme,
+    toggle: () => setTheme((prev) => (prev === "dark" ? "light" : "dark")),
+    enable: () => setTheme("dark"),
+    disable: () => setTheme("light"),
   };
 }
 

@@ -5,16 +5,16 @@ import useDarkMode from "../hooks/useDarkMode";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 export default function Switcher() {
-  const { themeMode, toggle } = useDarkMode();
+  const { theme, toggle } = useDarkMode();
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
  
 
   useEffect(() => {
-     setIsDarkMode(themeMode === "dark" ? true : false);
+     setIsDarkMode(theme === "dark" ? true : false);
     const root = window.document.documentElement;
-    root.classList.remove(themeMode === "dark" ? "light" : "dark");
-    root.classList.add(themeMode);
-  }, [themeMode]);
+    root.classList.remove(theme === "dark" ? "light" : "dark");
+    root.classList.add(theme);
+  }, [theme]);
 
   const themeVariants = {
     animate: {
