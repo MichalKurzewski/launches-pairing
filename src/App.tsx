@@ -1,3 +1,4 @@
+import { useState, createContext } from "react";
 import useFetch from "./hooks/useFetch";
 import StaticHeader from "./components/StaticHeader";
 import Loading from "./components/Loading";
@@ -5,6 +6,7 @@ import { spaceXApiConfig } from "./configs/spaceXApiConfig";
 import ListOfCards from "./components/ListOfCards";
 import Error from "./components/Error";
 import { AxiosResponse } from "axios";
+import ParticlesBackground from "./components/ParticlesBackground";
 
 export interface ILaunchDataMap {
   name: string;
@@ -51,16 +53,18 @@ function App(): JSX.Element {
     }));
     return <ListOfCards launchData={launchData} />;
   };
+
   return (
-    <div
-      id="top-container"
-      className=" bg-slate-100 dark:bg-sky dark:bg-fixed dark:bg-cover text-slate-700 dark:text-slate-100"
-    >
-      <StaticHeader />
-      <div id="central-container" className="container mx-auto px-4">
-        <DisplayContent />
+
+      <div id="top-container" className="text-slate-700 dark:text-slate-100">
+        <ParticlesBackground />
+        <StaticHeader />
+
+        <div id="central-container" className="container mx-auto px-4">
+          <DisplayContent />
+        </div>
       </div>
-    </div>
+
   );
 }
 
