@@ -1,16 +1,25 @@
 import ListOfCards from "../components/ListOfCards";
 import { render, screen } from "./utils/test-utils";
 import mockLaunchData from "./mocks/mockLaunchData";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 describe("<ListOfCards/>", () => {
   it("is not finding cards"),
     () => {
-      render(<ListOfCards launchData={mockLaunchData} />);
+      render(
+        <QueryClientProvider client={queryClient}>
+          <ListOfCards launchData={mockLaunchData} />
+        </QueryClientProvider>
+      );
       expect(screen.getByText(/FalconsatX/i)).toBeUndefined();
     };
   it("correctly displays cards", () => {
-    render(<ListOfCards launchData={mockLaunchData} />);
-    
+    render(
+      <QueryClientProvider client={queryClient}>
+        <ListOfCards launchData={mockLaunchData} />
+      </QueryClientProvider>
+    );
+
     expect(screen.getByText(/FalconSat/i)).toBeDefined();
     expect(screen.getByText(/2006-03-24T22:30:00.000Z/i)).toBeDefined();
     expect(screen.getByText(/5e9e289df35918033d3b2623/i)).toBeDefined();

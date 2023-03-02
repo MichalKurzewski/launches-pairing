@@ -30,7 +30,7 @@ const particlesDarkConfig: RecursivePartial<IOptions> = {
     },
     modes: {
       grab: {
-        distance: 250,
+        distance: 200,
         line_linked: {
           opacity: 0.2,
         },
@@ -50,7 +50,7 @@ const particlesDarkConfig: RecursivePartial<IOptions> = {
     },
     links: {
       color: "#f1f5f9",
-      distance: 150,
+      distance: 120,
       enable: true,
       opacity: 0.1,
       width: 0.5,
@@ -71,9 +71,9 @@ const particlesDarkConfig: RecursivePartial<IOptions> = {
     number: {
       density: {
         enable: true,
-        area: 2000,
+        area: 100,
       },
-      value: 180,
+      value: 7,
     },
     opacity: {
       value: 0.7,
