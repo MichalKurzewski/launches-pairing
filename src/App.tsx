@@ -6,7 +6,7 @@ import Error from "./components/Error";
 import ListOfCards from "./components/ListOfCards";
 import Loading from "./components/Loading";
 import ParticlesBackground from "./components/background/ParticlesBackground";
-import { useEffect } from "react";
+
 export interface ILaunchDataMap {
   name: string;
   date_utc: string;

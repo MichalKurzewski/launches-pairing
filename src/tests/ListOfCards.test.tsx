@@ -3,6 +3,7 @@ import { render, screen } from "./utils/test-utils";
 import mockLaunchData from "./mocks/mockLaunchData";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
+
 describe("<ListOfCards/>", () => {
   it("is not finding cards"),
     () => {

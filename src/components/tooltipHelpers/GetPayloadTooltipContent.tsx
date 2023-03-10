@@ -6,7 +6,13 @@ interface ISpaceXPayloadResponse extends AxiosResponse {
   name: string;
   type: string;
 }
-export const GetPayloadTooltipContent = (payload: string, name: string) => {
+export const GetPayloadTooltipContent = (
+  payload: string,
+  name: string
+): {
+  mouseEnterPayloadHandler: () => void;
+  payloadTooltipContent: () => JSX.Element | undefined;
+} => {
   const { data, status, error, refetch, isStale } =
     useFetch<ISpaceXPayloadResponse>(spaceXApiConfigPayloads(payload));
 

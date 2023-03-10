@@ -1,10 +1,10 @@
 import { ILaunchDataMap } from "../App";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Tooltip from "./Tooltip";
 import { GetCoreTooltipContent } from "./tooltipHelpers/GetCoreTooltipContent";
 import { GetPayloadTooltipContent } from "./tooltipHelpers/GetPayloadTooltipContent";
 
-const imageVariants = {
+const imageVariants: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -22,7 +22,7 @@ const Card: React.FC<ILaunchDataMap> = ({
   payloads,
   image,
   failureReasons,
-}: ILaunchDataMap) => {
+}: ILaunchDataMap): JSX.Element => {
   const { mouseEnterCoreHandler, coreTooltipContent } = GetCoreTooltipContent(
     core,
     name
@@ -39,7 +39,7 @@ const Card: React.FC<ILaunchDataMap> = ({
         </div>
       </div>
       <motion.div
-        className="rounded-full object-cover w-[180px] h-[180px] absolute -top-4 -left-4 bg-slate-100 dark:bg-slate-800  shadow-lg border-dashed dark:border-dashed border-4 border-slate-500"
+        className="rounded-full object-cover w-[180px] h-[180px] absolute -top-4 -left-4 bg-slate-100 dark:bg-slate-800 shadow-lg border-dashed dark:border-dashed border-4 border-slate-500"
         variants={imageVariants}
         initial="hidden"
         animate="visible"

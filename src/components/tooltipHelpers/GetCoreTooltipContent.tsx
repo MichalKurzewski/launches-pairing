@@ -6,7 +6,13 @@ interface ISpaceXCoreResponse extends AxiosResponse {
   serial: string;
   last_update: string;
 }
-export const GetCoreTooltipContent = (core: string, name: string) => {
+export const GetCoreTooltipContent = (
+  core: string,
+  name: string
+): {
+  mouseEnterCoreHandler: () => void;
+  coreTooltipContent: () => JSX.Element | undefined;
+} => {
   const { data, status, error, refetch, isStale } =
     useFetch<ISpaceXCoreResponse>(spaceXApiConfigCores(core));
 
@@ -39,4 +45,4 @@ export const GetCoreTooltipContent = (core: string, name: string) => {
     }
   };
   return { mouseEnterCoreHandler, coreTooltipContent };
-}
+};

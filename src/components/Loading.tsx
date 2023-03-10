@@ -1,7 +1,7 @@
 import { ReactComponent as Rocket } from "../assets/svg/soloRocket.svg";
 import { motion, Variants } from "framer-motion";
 
-const rocketVariants:Variants = {
+const rocketVariants: Variants = {
   init: {
     scale: 0.2,
     rotate: -45,
@@ -16,7 +16,7 @@ const rocketVariants:Variants = {
     transition: { duration: 0.5, repeat: Infinity, repeatType: "mirror" },
   },
 };
-const Loading: React.FC = () => {
+const Loading: React.FC = (): JSX.Element => {
   return (
     <div className="h-screen">
       <div className="absolute top-80 left-1/2 transform -translate-x-1/2 ">

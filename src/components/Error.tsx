@@ -4,7 +4,7 @@ interface IErrorProps {
   error: Error;
 }
 
-const Error: React.FC<IErrorProps> = ({ error }: IErrorProps) => {
+const Error: React.FC<IErrorProps> = ({ error }: IErrorProps): JSX.Element => {
   return (
     <div
       id="Error"

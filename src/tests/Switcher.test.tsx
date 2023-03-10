@@ -1,7 +1,6 @@
 import { describe, test, expect, vi } from "vitest";
 import Switcher from "../components/Switcher";
-import useDarkMode from "../hooks/useDarkMode";
-import { render, screen, userEvent } from "./utils/test-utils";
+import { render, userEvent } from "./utils/test-utils";
 
 describe("<Switcher />", () => {
   it("Switcher mounts properly, button is present and toggles icons from sun to moon", async () => {
