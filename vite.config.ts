@@ -7,11 +7,12 @@ import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/launches-pairing/",
   plugins: [svgr(), react()],
   test: {
     globals: true,
     environment: "jsdom",
-    css: true
+    css: true,
   },
   server: {
     port: 3000,
