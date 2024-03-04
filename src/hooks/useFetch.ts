@@ -1,11 +1,19 @@
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import {
+  QueryObserverResult,
+  RefetchOptions,
+  useQuery,
+} from "@tanstack/react-query";
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
 
 interface IResponse<T> {
   data: T | undefined;
-  status: "error" | "success" | "loading";
+  status: "pending" | "error" | "success" | "loading";
   error: AxiosError | null;
-  refetch: any;
+  refetch: (
+    options?: RefetchOptions | undefined
+  ) => Promise<
+    QueryObserverResult<T | undefined, AxiosError<unknown, any> | null>
+  >;
   isStale: boolean;
 }
 interface IData {
